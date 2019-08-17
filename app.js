@@ -50,7 +50,7 @@ const db = require('./config/db')
         mongoose.connect(db.mongoURI).then(() => {
             console.log('Mongonected!')
         }).catch((error) => {
-            console.log('OH NO DATABASE HAS EXPLODED!')
+            console.log('OH NO DATABASE HAS EXPLODED! because of\n=======' + error + '=======')
         })
     // Public
         app.use(express.static(path.join(__dirname, 'public')))
