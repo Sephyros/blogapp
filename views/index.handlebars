@@ -1,0 +1,27 @@
+<div class="jumbotron">
+  <h1 class="display-4">Welcome to Blogapp!</h1>
+  <p class="lead">Made with Node.js + Express + MongoDB</p>
+  <hr class="my-4">
+  <p>All your blog ideas on one place!</p>
+  <p>Get in and start posting!</p>
+  <a class="btn btn-primary btn-lg" href="/user/register" role="button">Sign Up!</a>
+</div>
+
+<hr>
+
+<h2>Recent Posts</h2>
+{{#each posts}}
+<div class="card mt-4">
+    <div class="card-body">
+        <h3>{{title}}</h3>
+        <p>{{description}}</p>
+        <a href="/post/{{slug}}"><button class="btn btn-info">Read More</button></a>
+        <hr>
+        <small>In {{category.name}}</small>
+        <small>At {{date}}</small>
+        <small>by BL#00001</small>
+    </div>
+</div>
+{{else}}
+<h5>No Posts</h5>
+{{/each}}
