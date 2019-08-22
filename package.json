@@ -25,6 +25,5 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@fortawesome/fontawesome-free": "^5.10.2"
   }
 }

@@ -1,5 +1,4 @@
 // Imports
-require('@fortawesome/fontawesome-free')
 const express = require('express')
 const handlebars = require('express-handlebars')
 const bodyParser = require('body-parser')
@@ -125,9 +124,6 @@ app.get('/post/:slug', (req, res) => {
     app.get('posts', (req, res) => {
         res.send('Posts')
     })
-
-    app.use('/fa', express.static(__dirname + '/node_modules/font-awesome/css'));
-    app.use('/fonts', express.static(__dirname + '/node_modules/font-awesome/fonts'));
 
 // Other
     const PORT = process.env.PORT || 8080
