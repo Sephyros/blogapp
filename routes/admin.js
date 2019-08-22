@@ -5,12 +5,22 @@ require('../models/Category')
 const Category = mongoose.model('categories')
 require('../models/Post')
 const Post = mongoose.model('posts')
+require('../models/User')
+const User = mongoose.model('user')
 const {isAdmin} = require('../helpers/isAdmin')
 
 router.get('/', isAdmin, (req, res) => {
     res.render('admin/index')
 })
 
+router.get('/users', isAdmin, (req, res) => {
+    User.find().sort({name: 'ASC'}).then((users) => {
+        res.render('admin/users', {users: users})
+    }).catch((error) => {
+        res.flash('error_message', "Something gone wrong when loading users!\n" + error)
+        res.redirect('/admin')
+    })
+})
 
 router.get('/categories', isAdmin, (req, res) => {
     Category.find().sort({date: 'DESC'}).then((categories) => {

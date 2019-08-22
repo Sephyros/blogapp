@@ -1,4 +1,5 @@
 // Imports
+require('@fortawesome/fontawesome-free')
 const express = require('express')
 const handlebars = require('express-handlebars')
 const bodyParser = require('body-parser')
@@ -47,7 +48,7 @@ const db = require('./config/db')
         app.set('view engine', 'handlebars')
     // Mongoose
         mongoose.Promise = global.Promise
-        mongoose.connect(db.mongoURI).then(() => {
+        mongoose.connect(db.mongoURI, {useNewUrlParser: true}).then(() => {
             console.log('Mongonected!')
         }).catch((error) => {
             console.log('OH NO DATABASE HAS EXPLODED! because of\n=======' + error + '=======')
@@ -64,6 +65,7 @@ const db = require('./config/db')
             res.redirect('/404')
         })
     })
+
 
 app.get('/post/:slug', (req, res) => {
     Post.findOne({slug: req.params.slug}).populate().then((post) => {
@@ -115,6 +117,7 @@ app.get('/post/:slug', (req, res) => {
             }
         }).catch((error) => {
             req.flash('error_message', 'Another one to the account!')
+            console.log(error)
             res.redirect('/')
         })
     })
@@ -123,7 +126,8 @@ app.get('/post/:slug', (req, res) => {
         res.send('Posts')
     })
 
-
+    app.use('/fa', express.static(__dirname + '/node_modules/font-awesome/css'));
+    app.use('/fonts', express.static(__dirname + '/node_modules/font-awesome/fonts'));
 
 // Other
     const PORT = process.env.PORT || 8080

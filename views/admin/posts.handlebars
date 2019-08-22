@@ -8,8 +8,6 @@
         <h4>{{title}}</h4>
         <small>{{description}}</small>
         <p>{{content}}</p>
-        <small>Slug: {{slug}}</small> | 
-        <small>Creation date: {{date}}</small><br>
         <span class="badge badge-secondary">{{category.name}}</span>
         <form action="/admin/posts/delete" method="POST">
             <input type="hidden" name="id" value="{{_id}}">
@@ -17,6 +15,7 @@
         </form>
         <a href="/admin/posts/edit/{{_id}}"><button
                 class="btn btn-info btn-sm mt-4 float-right mr-1">Edit</button></a>
+        <small>Creation date: {{date}}</small><br>
     </div>
 </div>
 {{else}}

@@ -1,0 +1,31 @@
+<div class="card card-body bg-dark">
+    <h4 class="text-light text-center">Users</h4>
+    <div class="table-responsive-sm text-center">
+    <table class="table table-sm table-dark table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Type</th>
+                <th scope="col" colspan="2">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each users}}
+            <tr>
+                <td>{{name}}</td>
+                <td>{{email}}</td>
+                {{#if isAdmin}}
+                <td><span class="badge badge-success">Admin
+                </span></td>
+                {{else}}
+                <td><span class="badge badge-info">User</span></td>
+                {{/if}}
+                <td><button class="btn btn-danger"><i class="material-icons">delete</i></button></td>
+                <td><button class="btn btn-info"><i class="material-icons">edit</i></button></td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    </div>
+</div>
