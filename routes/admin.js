@@ -102,8 +102,9 @@ router.post('/categories/delete', isAdmin, (req, res) => {
 })
 
 router.get('/posts', isAdmin, (req, res) => {
-    Post.find().populate('category').sort({date: 'DESC'}).then((posts) => {
+    Post.find().populate('category').populate('user').sort({date: 'DESC'}).then((posts) => {
         res.render('admin/posts', {posts: posts})
+        console.log(posts)
     }).catch((error) => {
         res.flash('error_message', "Oh sheep, something gone wrong on posts\n" + error)
         res.redirect('/admin')
@@ -133,7 +134,8 @@ router.post('/posts/new', isAdmin, (req, res) => {
             slug: req.body.slug,
             description: req.body.description,
             content: req.body.content,
-            category: req.body.category
+            category: req.body.category,
+            user: req.user
         }
     
     new Post(newPost).save().then(() => {

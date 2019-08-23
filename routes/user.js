@@ -77,8 +77,9 @@ router.post('/login', (req, res, next) => {
 })
 
 router.get('/logout', (req, res) => {
+    var userName = req.user.name
     req.logout()
-    req.flash('success_message', 'Bye!')
+    req.flash('success_message', 'Bye! ' + userName)
     res.redirect('/')
 })
 

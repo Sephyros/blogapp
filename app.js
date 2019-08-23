@@ -57,7 +57,7 @@ const db = require('./config/db')
 
 // Routes
     app.get('/', (req, res) => {
-        Post.find().populate('category').sort({date: 'DESC'}).then((posts) => {
+        Post.find().populate('category').populate('user').sort({date: 'DESC'}).then((posts) => {
             res.render("index", {posts: posts})
         }).catch((error) => {
             req.flash('error_message', 'Whoops, Something gone wrong...' + error)
@@ -67,18 +67,13 @@ const db = require('./config/db')
 
 
 app.get('/post/:slug', (req, res) => {
-    Post.findOne({slug: req.params.slug}).populate().then((post) => {
-        // Category.find().then((category) => {})            
+    Post.findOne({slug: req.params.slug}).populate('user').then((post) => {
         if(post){
                 res.render('post/index', {post: post})
             } else {
                 req.flash('error_message', 'Are you sure that post exists?')
                 res.redirect('/')
             }
-        // }).catch((error) => {
-        //     req.flash('error_msg', "Are you sure that post exists?" )
-        //     res.redirect("/")
-        // })
     }).catch((error) => {
         req.flash('error_msg', 'The world is changing... and something gone wrong! ')
         res.redirect('/')
