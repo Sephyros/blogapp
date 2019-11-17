@@ -1,29 +1,28 @@
 {
   "name": "blogapp",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "",
   "main": "app.js",
   "dependencies": {
-    "bcrypt": "^3.0.6",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "connect-flash": "^0.1.1",
     "express": "^4.17.1",
     "express-handlebars": "^3.1.0",
-    "express-session": "^1.16.2",
+    "express-session": "^1.17.0",
     "gulp": "^4.0.2",
-    "i18n": "^0.8.3",
+    "i18n": "^0.8.4",
     "material-dashboard-dark-edition": "^2.1.0",
-    "mongoose": "^5.6.9",
+    "mongoose": "^5.7.11",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "node app.js",
+    "update:packages": "node wipe-dependencies.js && rm -rf node_modules && npm update --save-dev && npm update --save"
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }
