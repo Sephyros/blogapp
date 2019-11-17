@@ -16,7 +16,7 @@ const Category = mongoose.model("categories");
 const passport = require("passport");
 require("./config/auth")(passport);
 const db = require("./config/db");
-
+const version = require("./package.json").version;
 // const i18n = require('./i18n')
 
 // Config
@@ -29,15 +29,15 @@ app.use(
     resave: true,
     saveUninitialized: true
   })
-);
-app.use(passport.initialize());
-app.use(passport.session());
-app.use(flash());
-// Middleware
-app.use((req, res, next) => {
-  res.locals.success_message = req.flash("success_message");
-  res.locals.error_message = req.flash("error_message");
-  res.locals.error = req.flash("error");
+  );
+  app.use(passport.initialize());
+  app.use(passport.session());
+  app.use(flash());
+  // Middleware
+  app.use((req, res, next) => {
+    res.locals.success_message = req.flash("success_message");
+    res.locals.error_message = req.flash("error_message");
+    res.locals.error = req.flash("error");
   res.locals.user = req.user || null;
   next();
 });
