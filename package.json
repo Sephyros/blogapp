@@ -10,7 +10,7 @@
     "express": "*",
     "express-handlebars": "*",
     "express-session": "*",
-    "gulp": "*",
+    "gulp": "~4.0.2",
     "i18n": "*",
     "material-dashboard-dark-edition": "*",
     "mongo-sanitize": "^1.1.0",
