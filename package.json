@@ -5,17 +5,17 @@
   "main": "app.js",
   "dependencies": {
     "bcryptjs": "*",
-    "body-parser": "*",
+    "body-parser": "1.20.0",
     "connect-flash": "*",
-    "express": "*",
-    "express-handlebars": "*",
-    "express-session": "*",
+    "express": "4.18.1",
+    "express-handlebars": "6.0.6",
+    "express-session": "1.17.3",
     "gulp": "~4.0.2",
-    "i18n": "*",
+    "i18n": "0.15.0",
     "material-dashboard-dark-edition": "*",
     "mongo-sanitize": "^1.1.0",
-    "mongoose": "*",
-    "passport": "*",
+    "mongoose": "6.4.5",
+    "passport": "0.6.0",
     "passport-local": "*"
   },
   "scripts": {
@@ -27,6 +27,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^2.0.6"
+    "nodemon": "^2.0.19"
   }
 }
