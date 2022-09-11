@@ -14,7 +14,7 @@
     "i18n": "0.15.0",
     "material-dashboard-dark-edition": "*",
     "mongo-sanitize": "^1.1.0",
-    "mongoose": "6.4.5",
+    "mongoose": "6.4.6",
     "passport": "0.6.0",
     "passport-local": "*"
   },
